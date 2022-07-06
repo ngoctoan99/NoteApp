@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+    <View
+        android:layout_width="150dp"
+        android:layout_height="5dp"
+        android:layout_gravity="center"
+        android:background="#A8A8A8"></View>
+    <TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:textStyle="bold"
+    android:text="Are you sure want to delete \n This Node ?"
+    android:textSize="18dp"></TextView>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Yes"
+        android:id="@+id/dialog_yes"
+        android:padding="10dp"
+        android:background="@drawable/yes_btn"
+        android:textStyle="bold"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:layout_margin="10dp"></TextView>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="No"
+        android:id="@+id/dialog_no"
+        android:padding="10dp"
+        android:background="@drawable/no_btn"
+        android:textStyle="bold"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:gravity="center"
+        android:layout_margin="10dp"></TextView>
+</LinearLayout>
