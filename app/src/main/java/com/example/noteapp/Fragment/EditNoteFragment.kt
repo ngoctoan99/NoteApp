@@ -75,8 +75,7 @@ class EditNoteFragment : Fragment() {
         binding.btnEditSaveNotes.setOnClickListener {
             updateNotes(it)
         }
-
-            return binding.root
+        return binding.root
     }
 
     private fun updateNotes(it: View?) {
@@ -111,6 +110,8 @@ class EditNoteFragment : Fragment() {
                 bottomSheet.dismiss()
             }
             bottomSheet.show()
+        }else if(item.itemId == android.R.id.home) {
+            Navigation.findNavController(requireView()).navigate(R.id.action_editNoteFragment_to_homeFragment)
         }
         return super.onOptionsItemSelected(item)
     }

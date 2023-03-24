@@ -3,13 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="#D0000000"
+    android:background="@color/white"
     android:layout_height="match_parent"
     tools:context=".Fragment.HomeFragment">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
         <LinearLayout
             android:id="@+id/linearlayout"
             android:layout_width="match_parent"
@@ -19,15 +18,15 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginTop="30dp">
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="10dp">
 
             <ImageView
                 android:id="@+id/allNote"
                 android:layout_width="35dp"
                 android:layout_height="35dp"
                 android:background="@drawable/btn_filter"
-                android:src="@drawable/filter"></ImageView>
+                android:src="@drawable/filter"/>
 
             <TextView
                 android:id="@+id/filterHigh"
@@ -41,7 +40,7 @@
                 android:paddingBottom="5dp"
                 android:text="High"
                 android:textColor="@color/red"
-                android:textSize="18dp"></TextView>
+                android:textSize="18dp"/>
 
             <TextView
                 android:id="@+id/filterMedium"
@@ -69,16 +68,17 @@
                 android:paddingBottom="5dp"
                 android:text="Low"
                 android:textColor="@color/green"
-                android:textSize="18dp"></TextView>
+                android:textSize="18dp"/>
         </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rcvAllNotes"
+            android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:padding="5dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearlayout"></androidx.recyclerview.widget.RecyclerView>
+            app:layout_constraintTop_toBottomOf="@+id/linearlayout"/>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/btnAddNote"
@@ -88,7 +88,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             android:src="@drawable/ic_baseline_add_24"
             android:backgroundTint="@color/red"
-            app:layout_constraintEnd_toEndOf="parent"></com.google.android.material.floatingactionbutton.FloatingActionButton>
+            app:layout_constraintEnd_toEndOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>

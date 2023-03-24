@@ -8,11 +8,14 @@ import com.example.noteapp.Model.Notes
 import com.example.noteapp.Repository.NotesRespository
 
 class NotesViewModel(application: Application): AndroidViewModel(application) {
-    val respository : NotesRespository
+
+    private val respository : NotesRespository
+
     init {
         val daoNotes = NotesDatabase.getDatabaseInstance(application).myNoteDao()
         respository = NotesRespository(daoNotes)
     }
+
     fun addNote(notes : Notes){
         respository.insertNotes(notes)
     }

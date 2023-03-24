@@ -14,7 +14,7 @@
     android:gravity="center"
     android:textStyle="bold"
     android:text="Are you sure want to delete \n This Node ?"
-    android:textSize="18dp"></TextView>
+    android:textSize="18dp"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -27,11 +27,12 @@
         android:layout_marginEnd="20dp"
         android:gravity="center"
         android:textColor="@color/white"
-        android:layout_margin="10dp"></TextView>
+        android:layout_margin="10dp"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="No"
+        android:textColor="#9A000000"
         android:id="@+id/dialog_no"
         android:padding="10dp"
         android:background="@drawable/no_btn"
@@ -39,5 +40,5 @@
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:gravity="center"
-        android:layout_margin="10dp"></TextView>
+        android:layout_margin="10dp"/>
 </LinearLayout>

@@ -4,8 +4,10 @@ import android.os.Bundle
 import android.text.format.DateFormat
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModel
@@ -14,6 +16,7 @@ import com.example.noteapp.Model.Notes
 import com.example.noteapp.R
 import com.example.noteapp.ViewModel.NotesViewModel
 import com.example.noteapp.databinding.FragmentCreatNoteBinding
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import java.util.*
 
 class CreatNoteFragment : Fragment() {
@@ -24,10 +27,14 @@ class CreatNoteFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         binding = FragmentCreatNoteBinding.inflate(layoutInflater,container,false)
+        setHasOptionsMenu(true)
         binding.btnSaveNotes.setOnClickListener {
-            creatNotes(it)
+            if(binding.edtTitle.text.isEmpty() || binding.edtNotes.text.isEmpty()){
+                Toast.makeText(context, "Please enter full information for note", Toast.LENGTH_SHORT).show()
+            }else {
+                creatNotes(it)
+            }
         }
         binding.pGreen.setOnClickListener {
             priority = "2"
@@ -60,4 +67,12 @@ class CreatNoteFragment : Fragment() {
         Toast.makeText(context,"Successful",Toast.LENGTH_SHORT).show()
         Navigation.findNavController(it!!).navigate(R.id.action_creatNoteFragment_to_homeFragment)
     }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+         if(item.itemId == android.R.id.home) {
+            Navigation.findNavController(requireView()).navigate(R.id.action_creatNoteFragment_to_homeFragment)
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
 }

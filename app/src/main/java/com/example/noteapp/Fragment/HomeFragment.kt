@@ -15,59 +15,59 @@ import com.example.noteapp.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
     lateinit var binding : FragmentHomeBinding
-    val viewModle : NotesViewModel by viewModels()
-    var oldMyNote = arrayListOf<Notes>()
-    lateinit var  adapter : NotesAdapter
+    private val viewModle : NotesViewModel by viewModels()
+    private var oldMyNote = arrayListOf<Notes>()
+    private lateinit var  adapter : NotesAdapter
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         binding = FragmentHomeBinding.inflate(layoutInflater,container,false)
         setHasOptionsMenu(true)
-        viewModle.getNotes().observe(viewLifecycleOwner,{notesList->
+        viewModle.getNotes().observe(viewLifecycleOwner) { notesList ->
             oldMyNote = notesList as ArrayList<Notes>
-           binding.rcvAllNotes.layoutManager = GridLayoutManager(requireContext(),2)
-            adapter = NotesAdapter(requireContext(),notesList)
+            binding.rcvAllNotes.layoutManager = GridLayoutManager(requireContext(), 2)
+            adapter = NotesAdapter(requireContext(), notesList)
             binding.rcvAllNotes.adapter = adapter
 
-        })
+        }
         binding.btnAddNote.setOnClickListener {
             Navigation.findNavController(it).navigate(R.id.action_homeFragment_to_creatNoteFragment)
         }
         binding.filterHigh.setOnClickListener {
-            viewModle.getHighNotes().observe(viewLifecycleOwner,{notesList->
+            viewModle.getHighNotes().observe(viewLifecycleOwner) { notesList ->
                 oldMyNote = notesList as ArrayList<Notes>
-                adapter = NotesAdapter(requireContext(),notesList)
-                binding.rcvAllNotes.layoutManager = GridLayoutManager(requireContext(),2)
+                adapter = NotesAdapter(requireContext(), notesList)
+                binding.rcvAllNotes.layoutManager = GridLayoutManager(requireContext(), 2)
                 binding.rcvAllNotes.adapter = adapter
-            })
+            }
 
         }
         binding.filterMedium.setOnClickListener {
-            viewModle.getMediumNotes().observe(viewLifecycleOwner,{notesList->
+            viewModle.getMediumNotes().observe(viewLifecycleOwner) { notesList ->
                 oldMyNote = notesList as ArrayList<Notes>
-                adapter = NotesAdapter(requireContext(),notesList)
-                binding.rcvAllNotes.layoutManager = GridLayoutManager(requireContext(),2)
+                adapter = NotesAdapter(requireContext(), notesList)
+                binding.rcvAllNotes.layoutManager = GridLayoutManager(requireContext(), 2)
                 binding.rcvAllNotes.adapter = adapter
-            })
+            }
 
         }
         binding.filterLow.setOnClickListener {
-            viewModle.getLowNotes().observe(viewLifecycleOwner,{notesList->
+            viewModle.getLowNotes().observe(viewLifecycleOwner) { notesList ->
                 oldMyNote = notesList as ArrayList<Notes>
-                adapter = NotesAdapter(requireContext(),notesList)
-                binding.rcvAllNotes.layoutManager = GridLayoutManager(requireContext(),2)
+                adapter = NotesAdapter(requireContext(), notesList)
+                binding.rcvAllNotes.layoutManager = GridLayoutManager(requireContext(), 2)
                 binding.rcvAllNotes.adapter = adapter
-            })
+            }
         }
         binding.allNote.setOnClickListener {
-            viewModle.getNotes().observe(viewLifecycleOwner,{notesList->
+            viewModle.getNotes().observe(viewLifecycleOwner) { notesList ->
                 oldMyNote = notesList as ArrayList<Notes>
-                adapter = NotesAdapter(requireContext(),notesList)
-                binding.rcvAllNotes.layoutManager = GridLayoutManager(requireContext(),2)
+                adapter = NotesAdapter(requireContext(), notesList)
+                binding.rcvAllNotes.layoutManager = GridLayoutManager(requireContext(), 2)
                 binding.rcvAllNotes.adapter = adapter
-            })
+            }
         }
 
         return binding.root
